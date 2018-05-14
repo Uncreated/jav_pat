@@ -1,7 +1,11 @@
-import java.util.Date;
-
 public class Main {
     public static void main(String[] args) {
+        //homework3();
+
+        homework4();
+    }
+
+    /*private static void homework3() {
         //Singleton
         Manager manager = Manager.getInstance();
 
@@ -23,5 +27,24 @@ public class Main {
                 .addItems(item2, item3));
 
         manager.print();
+    }*/
+
+    private static void homework4() {
+        //Composite
+        Manager manager = Manager.getInstance();
+
+        ExpenditureItem item1 = new ExpenditureItem(333.0f);
+        ExpenditureItem item2 = new ExpenditureItem(444.0f);
+        ExpenditureItem item3 = new ExpenditureItem(555.0f);
+
+        manager.addCashAction(new CashIncome(1000));
+        manager.addCashAction(new Expenditure().addItems(item1, item2));
+        manager.addCashAction(new CashIncome(100));
+        manager.addCashAction(new Expenditure().addItems(item2, item3));
+        manager.addCashAction(new CashIncome(10));
+
+        manager.print();
+
+        System.out.println(manager.getTotal());
     }
 }

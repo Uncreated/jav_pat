@@ -1,12 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
-public class Expenditure {
-
-    private User user;
-    private Date date;
+public class Expenditure extends CashAction {
 
     private List<ExpenditureItem> items;
 
@@ -14,39 +10,24 @@ public class Expenditure {
         items = new ArrayList<>();
     }
 
-    public Expenditure setUser(User user) {
-        this.user = user;
-        return this;
-    }
-
-    public Expenditure setDate(Date date) {
-        this.date = date;
-        return this;
-    }
-
     public Expenditure addItems(ExpenditureItem... items) {
         this.items.addAll(Arrays.asList(items));
         return this;
     }
 
-    public float getTotal() {
+    @Override
+    public float getTotalSum() {
         float total = 0;
         for (ExpenditureItem item : items) {
             total += item.getPrice();
         }
-        return total;
+        return -total;
     }
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        if (user != null) {
-            builder.append("User={" + user.toString() + "}\n");
-        }
-        if (date != null) {
-            builder.append("Date={" + date.toString() + "}\n");
-        }
-        builder.append("items={count=" + items.size() + ", total=" + getTotal() + "}");
+        StringBuilder builder = new StringBuilder(super.toString());
+        builder.append("items={count=" + items.size() + ", total=" + getTotalSum() + "}");
         return builder.toString();
     }
 }
