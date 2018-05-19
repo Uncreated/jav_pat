@@ -4,7 +4,9 @@ public class Main {
 
         //homework4();
 
-        homework5();
+        //homework5();
+
+        homework6();
     }
 
     /*private static void homework3() {
@@ -63,5 +65,10 @@ public class Main {
         Manager manager = Manager.getInstance();
         manager.loadFromDb();
         mainSleep(10);
+    }
+
+    private static void homework6() {
+
+
     }
 }

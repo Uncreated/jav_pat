@@ -1,5 +1,3 @@
-import javafx.beans.InvalidationListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,12 +35,12 @@ public class Manager {
     }
 
     public void loadFromDb() {
-        InvalidationListener listener = observable -> {
+        /*InvalidationListener listener = observable -> {
 
-            Db db = (Db) observable;
+            DatabaseSQLite databaseSQLite = (DatabaseSQLite) observable;
             System.out.println("I got notify from DB");
-            System.out.println("His data is " + db.getData());
+            System.out.println("His data is " + databaseSQLite.getData());
         };
-        Db.getInstance().addListener(listener);
+        DatabaseSQLite.getInstance().addListener(listener);*/
     }
 }
