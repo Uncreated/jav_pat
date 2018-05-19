@@ -1,3 +1,5 @@
+import javafx.beans.InvalidationListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,5 +34,15 @@ public class Manager {
             System.out.println(cashAction.toString());
             System.out.println();
         }
+    }
+
+    public void loadFromDb() {
+        InvalidationListener listener = observable -> {
+
+            Db db = (Db) observable;
+            System.out.println("I got notify from DB");
+            System.out.println("His data is " + db.getData());
+        };
+        Db.getInstance().addListener(listener);
     }
 }

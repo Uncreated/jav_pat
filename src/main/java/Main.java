@@ -2,7 +2,9 @@ public class Main {
     public static void main(String[] args) {
         //homework3();
 
-        homework4();
+        //homework4();
+
+        homework5();
     }
 
     /*private static void homework3() {
@@ -46,5 +48,20 @@ public class Main {
         manager.print();
 
         System.out.println(manager.getTotal());
+    }
+
+    private static void mainSleep(int sec) {
+        try {
+            Thread.sleep(sec * 1000);
+        } catch (InterruptedException e) {
+            System.out.println("got interrupted!");
+        }
+    }
+
+    private static void homework5() {
+        mainSleep(5);
+        Manager manager = Manager.getInstance();
+        manager.loadFromDb();
+        mainSleep(10);
     }
 }
